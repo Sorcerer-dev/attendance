@@ -1,10 +1,12 @@
-# attendance_widgets.py
+# this file contains the attendance button widgets and their functionality
 import tkinter as tk
 
+# This function creates attendance buttons for each student and manages their states.
 def create_attendance_buttons(parent, button_states):
     buttons = []
     colors = {"P": "green", "A": "red", "H": "orange", "OD": "grey"}
 
+    # Function to toggle the state of a button when clicked
     def toggle_button(index):
         states = ["P", "A", "H", "OD"]
         current = button_states[index]
@@ -24,6 +26,7 @@ def create_attendance_buttons(parent, button_states):
 
     return buttons, frame
 
+# This function toggles the state of all buttons based on the toggle button's state.
 def toggle_all(button_states, buttons, toggle_button):
     if toggle_button["text"] == "Mark All Absent":
         new_state, new_color = "A", "red"

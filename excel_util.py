@@ -1,10 +1,11 @@
-# excel_utils.py
+# this file contains the functions to save attendance data to an excel file and format it 
 import pandas as pd
 import os
 from datetime import datetime
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment
 
+# This function saves attendance data to an Excel file and formats it.
 def save_attendance_to_excel(file_name, selected_date, button_states):
     data = {"Roll No": list(range(1, 61)), selected_date: button_states}
     df_new = pd.DataFrame(data)
@@ -29,6 +30,7 @@ def save_attendance_to_excel(file_name, selected_date, button_states):
     df.to_excel(file_name, index=False)
     format_excel(file_name)
 
+# This function formats the Excel file by applying styles to the cells based on their values. 
 def format_excel(file_name):
     wb = load_workbook(file_name)
     ws = wb.active
